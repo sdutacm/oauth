@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "o2.apps.O2Config",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -117,7 +118,20 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-OAUTH2_PROVIDER = {"SCOPES": {"user_info:write": "写入个人信息", "user_info:read": "读取个人信息"}}
+OAUTH2_PROVIDER = {
+    "SCOPES": {
+        "user_info:write": "写入个人基础信息",
+        "user_info:read": "读取个人基础信息",
+        "user_priv:write": "写入个人隐私信息",
+        "user_priv:read": "读取个人隐私信息",
+        "user_edu:write": "写入个人教育信息",
+        "user_edu:read": "读取个人教育信息",
+        "user_oj:write": "写入个人 OJ 信息",
+        "user_oj:read": "读取个人 OJ 信息",
+        "user_social:write": "写入个人社交信息",
+        "user_social:read": "读取个人社交信息",
+    }
+}
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (

@@ -1,12 +1,38 @@
-from django.contrib.auth.models import Group, User
 from oauth2_provider.contrib.rest_framework import TokenHasResourceScope
 from rest_framework import permissions, viewsets
 
-from .serializers import UserSerializer
+from .models import UserEdu, UserInfo, UserPriv, UserSocial
+from .serializers import (
+    UserEduSerializer,
+    UserInfoSerializer,
+    UserPrivSerializer,
+    UserSocialSerializer,
+)
 
 
-class UserList(viewsets.ModelViewSet):
+class UserInfoViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated, TokenHasResourceScope]
     required_scopes = ["user_info"]
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+    queryset = UserInfo.objects.all()
+    serializer_class = UserInfoSerializer
+
+
+class UserPrivViewSet(viewsets.ModelViewSet):
+    permission_classes = [permissions.IsAuthenticated, TokenHasResourceScope]
+    required_scopes = ["user_priv"]
+    queryset = UserPriv.objects.all()
+    serializer_class = UserPrivSerializer
+
+
+class UserEduViewSet(viewsets.ModelViewSet):
+    permission_classes = [permissions.IsAuthenticated, TokenHasResourceScope]
+    required_scopes = ["user_edu"]
+    queryset = UserEdu.objects.all()
+    serializer_class = UserEduSerializer
+
+
+class UserSocialViewSet(viewsets.ModelViewSet):
+    permission_classes = [permissions.IsAuthenticated, TokenHasResourceScope]
+    required_scopes = ["user_social"]
+    queryset = UserSocial.objects.all()
+    serializer_class = UserSocialSerializer
