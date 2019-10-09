@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import UserEdu, UserInfo, UserPriv, UserSocial
+from .models import UserEdu, UserInfo, UserPriv
 
 
 class UserInfoSerializer(serializers.ModelSerializer):
@@ -27,9 +27,3 @@ class UserEduSerializer(serializers.ModelSerializer):
             "grade",
             "clazz",
         )
-
-
-class UserSocialSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = UserSocial
-        fields = ("site",)

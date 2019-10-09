@@ -26,8 +26,3 @@ class UserEdu(models.Model):
     major = models.CharField(max_length=256)
     grade = models.CharField(max_length=256)
     clazz = models.CharField(max_length=256)
-
-
-class UserSocial(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    site = models.CharField(max_length=256)

@@ -1,12 +1,11 @@
 from oauth2_provider.contrib.rest_framework import TokenHasResourceScope
 from rest_framework import permissions, viewsets
 
-from .models import UserEdu, UserInfo, UserPriv, UserSocial
+from .models import UserEdu, UserInfo, UserPriv
 from .serializers import (
     UserEduSerializer,
     UserInfoSerializer,
-    UserPrivSerializer,
-    UserSocialSerializer,
+    UserPrivSerializer
 )
 
 
@@ -29,10 +28,3 @@ class UserEduViewSet(viewsets.ModelViewSet):
     required_scopes = ["user_edu"]
     queryset = UserEdu.objects.all()
     serializer_class = UserEduSerializer
-
-
-class UserSocialViewSet(viewsets.ModelViewSet):
-    permission_classes = [permissions.IsAuthenticated, TokenHasResourceScope]
-    required_scopes = ["user_social"]
-    queryset = UserSocial.objects.all()
-    serializer_class = UserSocialSerializer

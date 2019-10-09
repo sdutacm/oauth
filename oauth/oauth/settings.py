@@ -125,11 +125,7 @@ OAUTH2_PROVIDER = {
         "user_priv:write": "写入个人隐私信息",
         "user_priv:read": "读取个人隐私信息",
         "user_edu:write": "写入个人教育信息",
-        "user_edu:read": "读取个人教育信息",
-        "user_oj:write": "写入个人 OJ 信息",
-        "user_oj:read": "读取个人 OJ 信息",
-        "user_social:write": "写入个人社交信息",
-        "user_social:read": "读取个人社交信息",
+        "user_edu:read": "读取个人教育信息"
     }
 }
 
